@@ -35,7 +35,7 @@ public class linkedListReversal {
         System.out.println("NULL");
     }
 
-    public void linkedListReversal(){
+    public void reversal(){
         Node previousNode = null;
         Node currentNode = head;
         Node nextNode;
@@ -55,7 +55,7 @@ public class linkedListReversal {
         ll.addAtLast(4);
         ll.addAtLast(5);
         ll.displayLL();
-        ll.linkedListReversal();
+        ll.reversal();
         ll.displayLL();
 
     }
