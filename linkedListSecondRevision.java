@@ -60,6 +60,28 @@ public class linkedListSecondRevision {
     public int recursiveSearch(int targetVariable){
         return healperFunction(head,targetVariable);
     }
+    public void reverseLinkedList(){
+        Node previousNode=null;
+        Node currentNode=tail=head;
+        Node nextNode;
+        while(currentNode!=null){
+            nextNode=currentNode.next;
+            currentNode.next=previousNode;
+            previousNode=currentNode;
+            currentNode=nextNode;
+        }head=previousNode;
+    }
+    public void findNthAndRemoveLinkedList(int target){
+        int sizeOFLinkedList=0;
+        Node tempNode=head;
+        while(tempNode!=null){
+            tempNode=tempNode.next;
+            sizeOFLinkedList++;
+        }Node previousNode=head;
+        for(int i=0;i<=sizeOFLinkedList-target-1;i++){
+            previousNode=previousNode.next;
+        }previousNode.next=previousNode.next.next;
+    }
     public static void main(String args[]){
         linkedListSecondRevision llsr = new linkedListSecondRevision();
         llsr.addAtStart(10);
@@ -68,11 +90,16 @@ public class linkedListSecondRevision {
         llsr.addAtStart(40);
         llsr.addAtStart(50);
         llsr.displayLinkedList();
+        // System.out.println();
+        // System.out.println("Target variable found at index -> " + llsr.iterativeSearch(30));
+        // System.out.println("Target variable found at index -> " + llsr.iterativeSearch(0));
+        // System.out.println();
+        // System.out.println("Target variable found at index -> " + llsr.recursiveSearch(20));
+        // System.out.println("Target variable found at index -> " + llsr.recursiveSearch(0));
         System.out.println();
-        System.out.println("Target variable found at index -> " + llsr.iterativeSearch(30));
-        System.out.println("Target variable found at index -> " + llsr.iterativeSearch(0));
-        System.out.println();
-        System.out.println("Target variable found at index -> " + llsr.recursiveSearch(20));
-        System.out.println("Target variable found at index -> " + llsr.recursiveSearch(0));
+        //llsr.findNthAndRemoveLinkedList(3);
+        // llsr.displayLinkedList();
+        llsr.reverseLinkedList();
+        llsr.displayLinkedList();
         }
 }
